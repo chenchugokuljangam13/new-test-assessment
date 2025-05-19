@@ -17,11 +17,11 @@ TEST_EXIT_CODE=$?
 # Print summary part only
 echo ""
 echo "----- 🧪 Test Summary (from results.json) -----"
-jq '{
+jq '
   passed: .numPassedTests,
   failed: .numFailedTests,
   total: .numTotalTests
-}' results.json
+' results.json
 
 
 exit 0
