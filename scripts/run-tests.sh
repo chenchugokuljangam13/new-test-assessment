@@ -14,14 +14,14 @@ echo "✅ Running unit tests..."
 # Run test, capture output silently
 npm run unit > /dev/null 2>&1
 TEST_EXIT_CODE=$?
-# Print summary part only
-echo ""
-echo "----- 🧪 Test Summary (from results.json) -----"
-jq '
-  passed: .numPassedTests,
-  failed: .numFailedTests,
-  total: .numTotalTests
-' results.json
+# # Print summary part only
+# echo ""
+# echo "----- 🧪 Test Summary (from results.json) -----"
+# jq '{
+#   passed: .numPassedTests,
+#   failed: .numFailedTests,
+#   total: .numTotalTests
+# }' results.json
 
 
 exit 0
