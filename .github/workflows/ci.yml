@@ -20,10 +20,10 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '18.x'
-      # don't push this to repo its not needed git hub vm contains awscli in-built
-      - name: Install AWS CLI (for local act testing)
-        run: |
-          sudo apt-get update && sudo apt-get install -y awscli
+      # # don't push this to repo its not needed git hub vm contains awscli in-built
+      # - name: Install AWS CLI (for local act testing)
+      #   run: |
+      #     sudo apt-get update && sudo apt-get install -y awscli
 
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v3
