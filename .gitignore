@@ -84,6 +84,7 @@ typings/
 .nuxt
 dist
 
+results.json
 # Gatsby files
 .cache/
 # Comment in the public line in if your project uses Gatsby and *not* Next.js
@@ -107,3 +108,4 @@ dist
 
 # secrets are only for act
 .secrets
+
