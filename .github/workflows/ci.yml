@@ -2,6 +2,7 @@
 # on:
 #   pull_request:
 #     types: [edited, opened, reopened, synchronize]
+# for testing i will use this workflows on push action
 on:
   push:
     branches:
@@ -20,10 +21,10 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '18.x'
-      # # don't push this to repo its not needed git hub vm contains awscli in-built
-      # - name: Install AWS CLI (for local act testing)
-      #   run: |
-      #     sudo apt-get update && sudo apt-get install -y awscli
+      # don't push this to repo its not needed git hub vm contains awscli in-built
+      - name: Install AWS CLI (for local act testing)
+        run: |
+          sudo apt-get update && sudo apt-get install -y awscli
 
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v3
@@ -37,7 +38,8 @@ jobs:
         run: |
           aws s3 cp s3://work-flow-bucket-3/post_hidden.test.js tests/test-case-private.test.js
       
-      - run: npm i
+      - name: Install dependencies
+        run: npm i
 
       - name: Make script executable
         run: chmod +x scripts/run-tests.sh
